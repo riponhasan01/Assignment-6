@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Plant a Tree, Grow a Future</title>
+
+    <link rel="stylesheet" href="./script/style.css">
+  <!-- favicon.icon -->
+    
+    <link rel="shortcut icon" href="./assets/Favicon.png" type="image/x-icon">
      <!-- tailwind and daisyUI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -77,13 +82,24 @@
 
             <div>
               <h1 class="text-lg font-bold mb-3">Categories</h1>
-               <div id="Categorie-container"  ></div>
+               <div id="Categorie-container" class="space-y-2" ></div>
             </div>
 
             <!-- card -->
             <div id="card-container" class=" grid col-span-3 grid-cols-3  gap-7">
             </div>
-            <div>
+            <div class=" bg-white p-3">
+              <h1 class=" font-bold text-xl px-4">Your Cart</h1>
+              <div class="bg-[#cff0dc] flex justify-between items-center p-2 ">
+                <div >
+                  <h1 class="font-bold">Banyan Tree</h1>
+                  <p><i class="fa-solid fa-bangladeshi-taka-sign"></i> <span>1200</span></p>
+                </div>
+                <div><i class="fa-solid fa-xmark"></i></div>
+              </div>
+                
+              
+              
             </div>
          </section>
 
@@ -178,6 +194,22 @@
            <p class="text-white opacity-50">© 2025 Green Earth. All Rights Reserved.</p>
 
          </footer>
+
+         <!-- Open the modal using ID.showModal() method -->
+         
+<dialog id="plants_details_modal" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <div id="details-container" class="">
+    </div>
+    <div class="modal-action">
+      <form method="dialog">
+       
+        <button class="btn ">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
 
          <script src="./script/index.js"></script>
 </body>
