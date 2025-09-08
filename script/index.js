@@ -1,10 +1,19 @@
 
 
+
 const loadCategorie = ()=>{
     fetch("https://openapi.programming-hero.com/api/categories")
     .then((res)=> res.json())
      .then((json)=> displayCategorie(json.categories));
 };
+
+
+const loadCardCategorieAll=(id)=>{
+    fetch("https://openapi.programming-hero.com/api/plants")
+    .then((res)=>res.json())
+    .then(data=> displayCard(data.plants))
+};
+loadCardCategorieAll();
 
 const loadCardCategorie = (id)=>{
     const url=`https://openapi.programming-hero.com/api/category/${id}`;
@@ -19,13 +28,11 @@ const displayCard=(cards)=>{
 
     cards.forEach((card) =>{
 
-        console.log(card);
-        
         const cardCat = document.createElement("div")
         cardCat.innerHTML=`
          
-        <div class="space-y-4 bg-white p-4  rounded-2xl shadow-sm">
-                <img src="${card.image}" alt="">
+        <div class="space-y-4 bg-white p-4  rounded-2xl shadow-sm  ">
+                <img  src="${card.image}" alt="">
                 <h2 class="font-bold text-xl"> ${card.name}</h2>
                 <p class="text-gray-500">${card.description}</p>
                 <div class=" flex justify-between ">
@@ -39,10 +46,6 @@ const displayCard=(cards)=>{
         cardContainer.append(cardCat)
 
     })
-
-    
-
-
 }
 
 const displayCategorie=(cats)=>{
