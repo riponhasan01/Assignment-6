@@ -42,7 +42,7 @@ const loadPlantDetails= async(id)=>{
 }
 
 const displayPlantDetails = (plants)=>{
-    console.log(plants);
+    
     const detailsBox = document.getElementById("details-container");
     detailsBox.innerHTML=`<div class="m-5">
         <h1 class="font-bold">${plants.name}</h1>
@@ -63,26 +63,73 @@ const displayCard=(cards)=>{
     cardContainer.innerHTML="";
 
     cards.forEach((card) =>{
+        
 
         const cardCat = document.createElement("div")
         cardCat.innerHTML=`
          
         <div class="space-y-4 bg-white p-4  rounded-2xl shadow-sm  ">
                 <img  src="${card.image}" alt="">
-                <h2 onclick="loadPlantDetails(${card.id})" class="font-bold text-xl cursor-pointer"> ${card.name}</h2>
+                <h2 id="${card.id}" onclick="loadPlantDetails(${card.id})" class="font-bold text-xl cursor-pointer"> ${card.name}</h2>
                 <p class="text-gray-500">${card.description}</p>
                 <div class=" flex justify-between ">
                   <p class="font-semibold text-[#15803D] px-2 bg-[#9EF9BD] rounded-xl ">${card.category}</p>
                   <p><i class="fa-solid fa-bangladeshi-taka-sign"></i><span class="font-semibold">${card.price}</p> <br>
                 </div>
-                 <a class="btn bg-[#15803d] rounded-3xl border-none text-green-900 w-full text-white text-lg" >Add to Cart</a>
+                 <a class="btn add-to-cart bg-[#15803d] rounded-3xl border-none text-green-900 w-full text-white text-lg" >Add to Cart</a>
               </div>
         
         `
         cardContainer.append(cardCat)
 
     })
+    cardContainer.addEventListener("click" , (e)=>{
+       
+        if(e.target.innerText === "Add to Cart"){          
+            handleYourCart(e)
+          
+            
+        }  
+    }) 
+    const handleYourCart = (e)=>{
+        const title =e.target.parentNode.children[1].innerText
+        const id = e.target.parentNode.children[1].id
+        const price=e.target.parentNode.children[3].children[1].children[1].innerText
+
+        yourCarts.push({
+           title:title ,
+           id:id ,
+            price:price
+          })
+          showYourcarts(yourCarts);
+    }
+    const showYourcarts =(yourCarts)=>{
+        yourCartContainer.innerHTML=""
+       yourCarts.forEach(yourcart =>{
+        const cartDivCreate = document.createElement("div")
+       
+        cartDivCreate.innerHTML=`
+       
+            <div >
+                  <h1 id="cart-items" class="font-bold">${yourcart.title}</h1>
+                  <p><i class="fa-solid fa-bangladeshi-taka-sign"></i> <span class="total-price">${yourcart.price}</span></p>
+                </div>
+                <div class="remove-item"><i class="fa-solid fa-xmark"></i>
+                </div>
+        `
+        yourCartContainer.append(cartDivCreate)
+        
+       })
+        
+        
+    }
 }
+ 
+let yourCarts =[];
+
+const yourCartContainer=document.getElementById("yourCartContainer")
+
+
 
 const displayCategorie=(cats)=>{
     const categorieContainer = document.getElementById("Categorie-container");
@@ -100,4 +147,37 @@ const displayCategorie=(cats)=>{
 
 };
 
+
+
+
+
 loadCategorie()
+
+
+
+
+
+
+
+// document.querySelector(".add-to-card").forEach(button =>{
+//     button.addEventListener("click" , () =>{
+//         const treeName =button.getAttribute(card.name);
+//         const treePrice =parseInt (button.getAttribute(card.price));
+
+
+//         const yourCart = document.createElement("div");
+//         yourCart.innerHTML=`
+//         <div class="bg-[#cff0dc] flex justify-between items-center p-2 ">
+//                 <div >
+//                   <h1 class="font-bold">${treeName}</h1>
+//                   <p><i class="fa-solid fa-bangladeshi-taka-sign"></i> <span>${treePrice}</span></p>
+//                 </div>
+//                 <div><i class="fa-solid fa-xmark"></i></div>
+//               </div>
+        
+        
+//         `
+
+
+//     })
+// })
