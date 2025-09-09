@@ -24,3 +24,21 @@ Answer to question no-3
 * function keyword ব্যবহার করতে হয় না। কোড ছোট আর ক্লিন হয়।
 * => এটা দিয়েই arrow function লেখা হয়।
 
+
+Answer to question no-4
+--------------------------
+
+* Array বা Object থেকে value গুলো এক লাইনে variable এ assign করা যায়।
+
+* পুরনো style-এ যেটা করতে হয় বারবার = লিখে, destructuring এ একবারেই হয়ে যায়।
+
+
+Answer to question no-5
+--------------------------
+
+1. Template literal লিখা হয় backticks ` এর মধ্যে।
+
+2. Variable বা expression বসাতে ${variable} ব্যবহার করা হয়।
+
+3. Multiline string সহজে লেখা যায়, কোন \n লাগবে না।
+
