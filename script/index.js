@@ -29,6 +29,7 @@ const displayCategorie=(cats)=>{
 
 
 const loadCardCategorieAll=(id)=>{
+   
     fetch("https://openapi.programming-hero.com/api/plants")
     .then((res)=>res.json())
     .then(data=> displayCard(data.plants))
@@ -43,6 +44,7 @@ const removeActive=()=>{
 }
 
 const loadCardCategorie = (id)=>{
+     manageSpiner(true)
     const url=`https://openapi.programming-hero.com/api/category/${id}`;
     fetch(url)
     .then (res => res.json())
@@ -102,7 +104,7 @@ const displayCard=(cards)=>{
         cardContainer.append(cardCat)
 
     })
- 
+    manageSpiner(false)   
 }
 
   const cardContainer =document.getElementById("card-container").addEventListener("click" , (e)=>{
@@ -138,7 +140,7 @@ const displayCard=(cards)=>{
         yourCartContainer.innerHTML=""
 
        if(yourCarts.length === 0){
-    totalPriceDiv.innerHTML = `<div  class="text-right"><h1 class="font-bold ">Total Price : <span><i class="fa-solid fa-bangladeshi-taka-sign"></i></span></h1></div>`; 
+    totalPriceDiv.innerHTML = `<div  class="text-right"><h1 class="font-bold ">Total Price : <span><i class="fa-solid fa-bangladeshi-taka-sign"></i>0</span></h1></div>`; 
     return
 } 
 
@@ -178,6 +180,19 @@ const displayCard=(cards)=>{
     yourCarts = filteredYourCarts
     showYourcarts(yourCarts);
  }
+
+const manageSpiner =(status)=>{
+    if (status == true){
+        document.getElementById("spiner").classList.remove("hidden")
+        document.getElementById("card-containerAll").classList.add("hidden")
+        }
+     else{
+        document.getElementById("card-containerAll").classList.remove("hidden")
+        document.getElementById("spiner").classList.add("hidden")
+        }
+   
+}
+
 const totalPriceDiv = document.getElementById("total-price")
    
 
