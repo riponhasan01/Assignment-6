@@ -57,19 +57,19 @@
 
 
     <!-- Banner Section -->
-    <section class=" sm:grid col-span-1 md: w-full grid col-span-3 grid-cols-3  bg-[#cff0dc] mt-1 ">
-        <div class="">
+    <section class=" w-full col-span-3 grid-cols-1 p-5 md:col-span-3 md:grid grid-cols-3  bg-[#cff0dc] mt-1 ">
+        <div class="hidden md:block">
             <img  src="./assets/hero-leaf1.png" alt="">
                 
         </div>
 
-        <div class="text-center flex flex-col justify-center items-center space-y-5">
+        <div class="  text-center  md:text-center flex flex-col justify-center items-center space-y-5">
             <h1 class="text-5xl font-bold">Plant a Tree, Grow a Future</h1>
             <p class="text-gray-500">Join our mission to plant 1 million trees and make the Earth greener for future generations.</p>
              <a class="btn bg-[#facc15] rounded-3xl border-none text-green-900">Get Involved</a>
         </div>
 
-        <div class=" sm:hidden ">
+        <div class=" hidden md:block ">
              <img src="./assets/hero-leaf2.png" alt="">       
         </div>
     </section>
@@ -79,28 +79,28 @@
     </section>
      
          <section id="card-containerAll">
-          <div class=" text-3xl font-semibold text-center my-10 ">
+          <div class=" hidden md:block text-3xl font-semibold text-center my-10 ">
             Choose Your Trees
          </div>
   <!-- card categoy -->
-         <section class="grid col-span-5 grid-cols-5 w-11/12 mx-auto gap-7">
+         <section class="  grid-cols-1 col-span-5  md:col-span-5 md:grid grid-cols-5 w-11/12 mx-auto gap-7">
 
-            <div>
-              <h1 class="text-lg font-bold mb-3">Categories</h1>
-               <div id="Categorie-container" class="space-y-2" ></div>
+            <div class=" ">
+              <h1 class=" text-center md:text-lg font-bold mb-3 ">Categories</h1>
+               <div id="Categorie-container" class=" flex flex-wrap justify-center  md:flex-col md:space-y-2 " ></div>
             </div>
-
+            <div class="text-3xl font-semibold text-center my-10 block md:hidden   ">
+            Choose Your Trees
+         </div>
             <!-- card -->
-            <div id="card-container" class=" grid col-span-3 grid-cols-3  gap-7 ">
+            <div id="card-container" class=" grid-cols-1 md:col-span-3 md:grid grid-cols-3  gap-7  ">
             </div>
 
             <!-- Your Cart -->
 
-            <div>
-              <h1 class=" font-bold text-xl px-4">Your Cart</h1>
-            <div id="yourCartContainer" class=" bg-white p-3 space-y-2 ">
-              
-             
+            <div id="useless" class=" ">
+              <h1 class="font-bold text-xl px-4">Your Cart</h1>
+            <div id="yourCartContainer" class=" bg-white p-3 space-y-2 rounded-lg ">
             </div>
             <div id="total-price"></div>
             </div>

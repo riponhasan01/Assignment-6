@@ -121,7 +121,7 @@ const displayCard=(cards)=>{
         const price=e.target.parentNode.children[3].children[1].children[1].innerText  
         const doubleItem = yourCarts.find(item => item.id===id)
         if(doubleItem) {
-             alert(`${title} is already in the cart`);
+             alert(`Warning ⚠️ ${title} is already in the cart`);
              return
         }
         yourCarts.push({
@@ -153,7 +153,7 @@ const displayCard=(cards)=>{
         const cartDivCreate = document.createElement("div")
        
         cartDivCreate.innerHTML=`
-             <div class="bg-[#cff0dc] flex justify-between items-center p-2 ">
+             <div class="bg-[#cff0dc] flex justify-between  items-center p-2 rounded-lg">
             <div >
                   <h1 id="cart-items" class="font-bold">${yourcart.title}</h1>
                   <p><i class="fa-solid fa-bangladeshi-taka-sign"></i> <span class="total-price">${yourcart.price}</span></p>
